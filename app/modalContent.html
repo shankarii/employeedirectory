@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Add Employee</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="form-group">
+        <label>Name: <input type="text" ng-model="modalCtrl.formData.name" placeholder="Name" required/></label><br/>
+        <label>Email: <input type="email" ng-model="modalCtrl.formData.email" placeholder="Email" required/></label><br/>
+        <label>Date of Birth: <input type="date" ng-model="modalCtrl.formData.date" placeholder="Birthdate" required/></label><br/>
+        <label>Department: <input type="text" ng-model="modalCtrl.formData.department" placeholder="Department" required/></label><br/>
+        <label>Gender: <label class="radio-inline"><input type="radio" name="optradio" ng-model="modalCtrl.formData.gender" value="Male">Male</label>
+        <label class="radio-inline"><input type="radio" name="optradio" ng-model="modalCtrl.formData.gender" value="Female">Female</label></label><br/>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-if="modalCtrl.level=='ADD'" ng-click="modalCtrl.add()">Add</button>
+    <button class="btn btn-primary" type="button" ng-if="modalCtrl.level=='UPDATE'" ng-click="modalCtrl.update()">Update</button>
+    <button class="btn btn-warning" type="button" ng-click="modalCtrl.cancel()">Cancel</button>
+</div>

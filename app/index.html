@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EmployeeApp</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-toastr/2.1.1/angular-toastr.css" />
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-touch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-toastr/2.1.1/angular-toastr.tpls.js"></script>
+
+
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body ng-app="employeeApp">
+
+    <div class="container" ng-controller="employeeController">
+        <div class="row header">
+                <h1>Employee Directory</h1>
+                <h4>Manage all your employees in one place...</h4>    
+        </div>
+
+        <div class="row editEmployee">
+            <div class="col-lg-12">
+                <h3>Current Employees <button type="button" class="btn btn-sm btn-primary pull-right" uib-popover="Add a new Employee" popover-trigger="'mouseenter'" ng-click='modalOpen()'>Add Employee</button></h3>                
+            </div>
+            <div class="col-lg-12 ">
+                <table class="employeeTable table table-responsive table-hover table-bordered">
+                    <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Gender</th>
+                        <th>D.O.B</th>
+                        <th>Age</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="emp in allEmp">
+                            <td>{{emp.name}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.department}}</td>
+                            <td>{{emp.gender}}</td>
+                            <td>{{emp.date | date:'yyyy-MM-dd'}}</td>
+                            <td>{{emp.age}}</td>
+                            <td><span class="actionbuttons label label-primary" uib-tooltip="Update Employee" tooltip-trigger="'mouseenter'" ng-click='modalOpen(emp)'>Update</span>&nbsp;&nbsp;<span class="actionbuttons label label-warning" uib-tooltip="Delete Employee" tooltip-trigger="'mouseenter'" ng-click="removeEmployee(emp.email)">Delete</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.controller.js"></script>
+    <script src="scripts/modal.controller.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>
