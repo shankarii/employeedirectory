@@ -23,9 +23,9 @@ app.service('employeeService', function ($http, $q) {
 
 //    var allEmpURL = 'http://localhost:8080/api/employees';
 //    var addEmpURL = 'http://localhost:8080/api/employee';
-    
-    var allEmpURL = 'https://employeedirectory99.herokuapp.com/api/employees';
-    var addEmpURL = 'https://employeedirectory99.herokuapp.com/api/employee';
+
+    var allEmpURL = 'https://employeedirectory9.herokuapp.com/api/employees';
+    var addEmpURL = 'https://employeedirectory9.herokuapp.com/api/employee';
 
     var getAllEmployees = function () {
         var deferred = $q.defer();
@@ -50,7 +50,7 @@ app.service('employeeService', function ($http, $q) {
             });
             return deferred.promise;
         }
-        
+
     var updateEmployee = function (empdata) {
             var deferred = $q.defer();
             $http.put(addEmpURL, empdata).then(function (emp) {
@@ -109,7 +109,7 @@ app.controller('employeeController', function ($window, $scope, $uibModal, $log,
             }
         });
 
-        modalInstance.result.then(function (value) {    
+        modalInstance.result.then(function (value) {
             //console.log("VALUE: ",value);
             $scope.reloadList();
         }, function () {
